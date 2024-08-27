@@ -1,6 +1,8 @@
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -114,16 +116,9 @@ public class ArraySortTest {
 		arr.add(3);
 		arr.add(4);
 		arr.add(5);
-		// step 1: sort the array with ArraySort.quickSort(arr)
-		// ArrayList<Integer> result = ArraySort.quickSort(arr);
-		//
-		// now test the sorting of result
-
-		// step 2: check the length of the array
-		fail("not implemneted yet");
-
-		// step 2: check if the array is sorted
-		fail("not implemented yet");
+		ArrayList<Integer> arr_sorted = ArraySort.quickSort(arr);
+		List<Integer> expectedList = Arrays.asList(1, 2, 3, 4, 5);
+		assertEquals(expectedList, arr_sorted);
 	}
 
 	@Test
@@ -134,25 +129,16 @@ public class ArraySortTest {
 		arr.add(2);
 		arr.add(9);
 		arr.add(5);
-		// step 1: sort the array with ArraySort.quickSort(arr)
-		// and test the resulting list.
-
-		// step 2: check the length of the array
-		fail("not implemneted yet");
-
-		// step 2: check if the array is sorted
-		fail("not implemented yet");
+		ArrayList<Integer> arr_sorted = ArraySort.quickSort(arr);
+		List<Integer> expectedList = Arrays.asList(1, 2, 5, 5, 9);
+		assertEquals(expectedList, arr_sorted);
 	}
 
 	@Test
 	public void testQuickSortEmpty() {
 		ArrayList<Integer> arr = new ArrayList<Integer>();
-		// step 1: sort the array with Quick Sort in the same way as above.
-
-		// step 2: check the length of the array
-		fail("not implemneted yet");
-
-		// step 2: check if the array is sorted
-		fail("not implemented yet");
+		ArrayList<Integer> arr_sorted = ArraySort.quickSort(arr);
+		List<Integer> expectedList = Arrays.asList();
+		assertEquals(expectedList, arr_sorted);
 	}
 }
