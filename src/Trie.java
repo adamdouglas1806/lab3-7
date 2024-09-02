@@ -99,29 +99,6 @@ public class Trie implements TrieADT {
 				}
 			}
 		}
-		
-		// Optional challenge
-		//
-		// "b" is a prefix of "boxed"
-		// "bo" is a prefix of "boxed"
-		// "box" is a prefix of "boxed"
-		// "ba" is not a prefix of "boxed"
-		// "a" is not a prefix of "boxed"
-		public ArrayList<String> wordsWithPrefix(String s) {
-			// 97 is 'a' in ASCII
-			int positionOfNextNode = ((int) s.toLowerCase().codePointAt(0)) - 97;
-			/* TODO */
-			return null;
-		}
-		
-		/**
-		 * Optional challenge.
-		 */
-		public boolean areWordsWithPrefix(String s){
-			int positionOfNextNode = ((int)s.codePointAt(0)) - 97; //97 is 'a' in ASCII
-			/* TODO */
-			return false;
-		}
 
 		/**
 		 * Extracts the words from the trie
@@ -152,6 +129,24 @@ public class Trie implements TrieADT {
 					}
 				}
 			}
+			return al;
+		}
+		
+		/**
+		 * Returns all suffixes of a prefix
+		 * 
+		 * E.g. if a Trie includes "banana", "ban" and "forest" then
+		 * 
+		 * suffixesOfPrefix("ba")
+		 * 
+		 * should return a list containing strings "nana" and "n".
+		 *
+		 * @param s The prefix
+		 * @return the list of suffixes of the given prefix
+		 */
+		public ArrayList<String> suffixesOfPrefix(String s) {
+			ArrayList<String> al = new ArrayList<>();
+			// TODO find all suffixes of the prefix string s
 			return al;
 		}
 
@@ -188,6 +183,41 @@ public class Trie implements TrieADT {
 			}
 		}
 	}
+	
+	/**
+	 * Returns all of the words in the Trie as a list
+	 */
+	public ArrayList<String> allWords() {
+		if (rootNode == null) {
+			return new ArrayList<String>();
+		} else {
+			return rootNode.returnAllWords();
+		}
+	}
+
+	/**
+	 * returns all words in the Trie with a given prefix. If the prefix is the empty
+	 * string, this method should return all words in the Trie.
+	 *
+	 * @param prefix the prefix of all words to be returned
+	 * @return the words that have the given prefix
+	 */
+	public ArrayList<String> wordsWithPrefix(String prefix) {
+		if (rootNode == null) {
+			return new ArrayList<String>();
+		} else if (prefix.isEmpty()) {
+			return rootNode.returnAllWords();
+		} else {
+			ArrayList<String> suffixes = rootNode.suffixesOfPrefix(prefix);
+			Iterator<String> it = suffixes.iterator();
+			ArrayList<String> words = new ArrayList<String>();
+			while (it.hasNext()) {
+				words.add(prefix + it.next());
+			}
+			return words;
+		}
+	}
+
 
 	/**
 	 * inserts a word into the trie
@@ -233,41 +263,6 @@ public class Trie implements TrieADT {
 		} else {
 			return rootNode.countAllWords();
 		}
-	}
-	
-	/**
-	 * Find all words in a trie that have the given prefix
-	 * 
-	 * Optional challenge.
-	 * 
-	 * For a Trie containing "boxed"
-	 * 
-	 *     wordsWithPrefix("bo") should return ["boxed"]
-	 *     wordsWithPrefix("boxe") should return ["boxed"]
-	 * 
-	 * @param str the prefix to search for
-	 * @return the list of words that have str as its prefix
-	 */
-	public ArrayList<String> wordsWithPrefix(String str) {
-		if (rootNode == null) {
-			return new ArrayList<>();
-		}
-		else {
-			return rootNode.wordsWithPrefix(str);
-		}
-	}
-
-	/**
-	 * Find if a given string is a prefix of a word in a trie
-	 * 
-	 * Optional challenge.
-	 * 
-	 * @param str the prefix to search for
-	 * @return true if str is a prefix of at least one word in the true, false
-	 *         otherwise
-	 */
-	public boolean areWordsWithPrefix(String str) {
-		return false;
 	}
 
 	public static void main(String[] args) {
