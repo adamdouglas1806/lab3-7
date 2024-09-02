@@ -2,6 +2,7 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -38,6 +39,74 @@ public class TrieTest {
 		// step 2: test countAllWords() for the trie
 		fail("not implemented yet");
 	}
+	
+	/** Returns true if two lists hold exactly the same set of value.
+	 * 
+	 *  The ordering of the values in the lists are ignored.
+	 * @param expected_list The values that should be in the list
+	 * @param actual_list The actual values in the list
+	 * @return true if the sets are equal
+	 */
+	private boolean listsEqual(List<String> expected_list, ArrayList<String> actual_list) {
+		return (expected_list.size() == actual_list.size() && expected_list.containsAll(actual_list)
+				&& actual_list.containsAll(expected_list));
+	}
+	
+	@Test
+	public void wordsWithPrefixTestNonEmptyBA() {
+		trie.insert("balls");
+		trie.insert("balloon");
+		trie.insert("ball");
+		trie.insert("football");
+		ArrayList<String> actual_list = trie.wordsWithPrefix("ba");
+		List<String> expected_list = Arrays.asList("balls", "balloon", "ball");
+		assertTrue(listsEqual(expected_list, actual_list));
+	}
+	
+	@Test
+	public void wordsWithPrefixTestEmptyA() {
+		trie.insert("balls");
+		trie.insert("balloon");
+		trie.insert("ball");
+		trie.insert("football");
+		ArrayList<String> actual_list = trie.wordsWithPrefix("a");
+		List<String> expected_list = Arrays.asList();
+		assertTrue(listsEqual(expected_list, actual_list));
+	}
+	
+	@Test
+	public void wordsWithPrefixTestEmptyBAN() {
+		trie.insert("balls");
+		trie.insert("balloon");
+		trie.insert("ball");
+		trie.insert("football");
+		ArrayList<String> actual_list = trie.wordsWithPrefix("ban");
+		List<String> expected_list = Arrays.asList();
+		assertTrue(listsEqual(expected_list, actual_list));
+	}
+	
+	@Test
+	public void wordsWithPrefixTestEmptyNoString() {
+		trie.insert("balls");
+		trie.insert("balloon");
+		trie.insert("ball");
+		trie.insert("football");
+		ArrayList<String> actual_list = trie.wordsWithPrefix("");
+		List<String> expected_list = Arrays.asList("balls","balloon","ball","football");
+		assertTrue(listsEqual(expected_list, actual_list));
+	}
+	
+	@Test
+	public void wordsWithPrefixTestNonEmptyF() {
+		trie.insert("balls");
+		trie.insert("balloon");
+		trie.insert("ball");
+		trie.insert("football");
+		ArrayList<String> actual_list = trie.wordsWithPrefix("f");
+		List<String> expected_list = Arrays.asList("football");
+		assertTrue(listsEqual(expected_list, actual_list));
+	}
+	
 
 	/*
 	 * More trie tests
