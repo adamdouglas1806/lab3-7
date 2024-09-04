@@ -25,6 +25,8 @@ public class ArraySort {
 	 *
 	 * O(?)
 	 * 
+	 * Because: TODO
+	 * 
 	 * @param arr the array to be sorted in-place
 	 */
 	public static void bubbleSort(int[] arr) {
@@ -39,6 +41,8 @@ public class ArraySort {
 	 * TODO Where N is the number of elements in the array 'S' the complexity is:
 	 *
 	 * O(?)
+	 * 
+	 * Because: TODO
 	 * 
 	 * @param S the unsorted input array
 	 * @return the sorted output array

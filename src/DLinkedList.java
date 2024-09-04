@@ -211,6 +211,8 @@ public class DLinkedList {
 	 * TODO Where N is the number of elements in the list the complexity is:
 	 *
 	 * O(?)
+	 * 
+	 * Because: TODO
 	 */
 	public void insertionSort() {
 
