@@ -19,7 +19,7 @@ public class ArraySort {
 
 	/** Insertion sort of an array
 	 * 
-	 * This is Question 3
+	 * This is Question 4
 	 * 
 	 * TODO Where N is the number of elements in the array 'arr' the complexity is:
 	 *
@@ -36,7 +36,7 @@ public class ArraySort {
 	/** Quick sort of an array. This method creates a new array with
 	 * its values sorted, based on the values in the unsorted input array S.
 	 * 
-	 * This is Question 5
+	 * This is Question 6
 	 * 
 	 * TODO Where N is the number of elements in the array 'S' the complexity is:
 	 *

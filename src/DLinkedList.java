@@ -202,7 +202,7 @@ public class DLinkedList {
 	/**
 	 * Sorted the doubly linked list using the insertion-sort algorithm.
 	 * 
-	 * This is Question 4
+	 * This is Question 5
 	 * 
 	 * Look at how insertionSort in ArraySort.java does insertion sort on arrays.
 	 * The task is to perform the same algorithm, but sorting nodes linked together
