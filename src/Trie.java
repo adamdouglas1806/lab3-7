@@ -147,6 +147,50 @@ public class Trie implements TrieADT {
 		public ArrayList<String> suffixesOfPrefix(String s) {
 			ArrayList<String> al = new ArrayList<>();
 			// TODO find all suffixes of the prefix string s
+			
+			int i = 0;
+			//Declaring a variable i.
+			
+			if (s.length() > 0) {
+			//Makes sure that s is not empty.
+				char currentLetter = s.charAt(0);
+				//Declaring a variable that will represent the current letter in the Trie, it sets it to the first character of s.
+				i = currentLetter - 'a';
+				//setting the variable i to represent the index of the array.
+			
+			if (subnodes[i] == null) {
+			//Checks if a sub node exists for the index character.
+				return al;
+				//If the condition is met then the array list is returned.
+			}
+			
+			return subnodes[i].suffixesOfPrefix(s.substring(1));
+			//This line of code will recursively call it's own method to pass through the remaining prefix (all except for the first letter).
+			
+			}
+			
+			if (this.isValidEnd) {
+			//Checks if the current node is at the end of the word.
+				al.add("");
+				//If the condition is met then an empty string which will represent the end of the word will be added.
+			}
+			
+			for (int y = 0; y < 26; y++) {
+			//A for loop which will repeat for each possible sub node in the array.
+				if (subnodes[y] != null) {
+				//Checks if a word exists by making sure there are sub nodes.
+					char nextLetter = (char) (y + 'a');
+					//Sets a new variable nextLetter to the index which represents the next letter on the path.
+					ArrayList<String> subNodeSuffix = subnodes[y].suffixesOfPrefix("");
+					//This line of code will recursively call suffixesOfPrefix so it will return the list of suffixes.
+					for (String suffix : subNodeSuffix) {
+					//for loop which will repeat for each suffix of subNodeSuffix.
+						al.add(nextLetter + suffix);
+						//Adds the next letter onto the suffix word.
+					}
+				}
+			}
+			
 			return al;
 		}
 

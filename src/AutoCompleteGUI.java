@@ -103,5 +103,20 @@ public class AutoCompleteGUI {
 		// 'addElement', which has the effect of adding the string to the list in the
 		// GUI.
 		
+		if (prefix == null || prefix.isEmpty()) {
+		//If statement which checks if the prefix is null;
+			return;
+			//If the prefix is null then return nothing;
+		}
+		
+		ArrayList<String> match = trie.wordsWithPrefix(prefix);
+		//Calls the wordsWithPrefix method to get all the words that share the same beginning as the given prefix.
+		
+		for (String i : match) {
+		//Repeats for each element in match.
+			listModel.addElement(i);
+			//adds the element to the GUI list.
+		}
+		
 	}
 }
