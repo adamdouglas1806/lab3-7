@@ -163,8 +163,24 @@ public class Trie implements TrieADT {
 			// TODO recursively look through the trie for all isValidEnd==True nodes
 			// which will give us a count of how many complete words there are
 			// stored in the trie.
+			
+			if (this.isValidEnd) {
+				//A if statement which checks if the node is the end of the word.
+				numberOfWords++;
+				//If the condition is met then 1 is added to the variable numberOfWords.
+			}
+			
+			for (TrieNode i : subnodes) {
+			//A for loop which will repeat for every sub node.
+				if (i != null) {
+				//A if statement which checks if it is not the end of the word/ last node.
+					numberOfWords += i.countAllWords();
+					//The method will call itself recursively and will count the words in the sub nodes. 
+				}
+			}
 
 			return numberOfWords;
+			
 		}
 	}
 

@@ -35,9 +35,14 @@ public class TrieTest {
 	@Test
 	public void countAllWordsTest() {
 		// step 1: add some words to the trie
-
+		trie.insert("ball");
+		//Adds the word "ball" to the trie.
+		trie.insert("baloon");
+		//Adds the word "baloon" to the trie.
+		
 		// step 2: test countAllWords() for the trie
-		fail("not implemented yet");
+		assertEquals("There are two words in thr trie", 2, trie.countAllWords());
+		//The expected result is 2 and checks for the amount of words in trie.
 	}
 	
 	/** Returns true if two lists hold exactly the same set of value.
