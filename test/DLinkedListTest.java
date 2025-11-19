@@ -59,40 +59,59 @@ public class DLinkedListTest {
 		// don't add any values to the linked list dl
 		
 		// now call the insertionSort() method on dl
+		dl.insertionSort();
 		
 		// test the size of the empty linked list
-		fail("not implemented yet");
+		assertEquals("The size of the empty linked list is 0", 0, dl.size());
+		//Expected 0 and checks for the size of the linked list dl.
 		
 		// test that the list is sorted
-		fail("not implemented yet");
+		assertTrue("The empty list is sorted", dl.isSorted());
+		//The expected result is true and it checks for the boolean result from the method isSorted in DLinkedList for the linked list dl.
 	}
 	
 	@Test
 	public void testInsertionSortOrdered() {
 		// add some numbers to the head and tail of
 		// the list dl, such that the list is ordered
+		dl.addAtHead(2);
+		//Adds the number 2 to the head of the list dl.
+		dl.addAtHead(1);
+		//Adds the number 1 to the head of the list dl.
+		dl.addAtTail(3);
+		//Adds the number 3 to the tail of the list dl.
 		
 		// now call the insertionSort() method on dl
+		dl.insertionSort();
 				
 		// test the size of the linked list
-		fail("not implemented yet");
+		assertEquals("The size of the linked list is 3", 3, dl.size());
+		//Expected 3 and checks for the size of the linked list dl.
 				
 		// test that the list is sorted
-		fail("not implemented yet");
+		assertTrue("The list is sorted", dl.isSorted());
+		//The expected result is true and it checks for the boolean result from the method isSorted in DLinkedList for the linked list dl.
 	}
 	
 	@Test
 	public void testInsertionSortRandom() {
 		// add some numbers to the head and tail of
 		// the list dl, such that the list is unordered
-			
+		dl.addAtHead(1);
+		//Adds the number 1 to the head of the list dl.
+		dl.addAtHead(5);
+		//Adds the number 5 to the head of the list dl.
+		dl.addAtTail(3);
+		//Adds the number 3 to the tail of the list dl.
+		System.out.println(dl);
 		// now call the insertionSort() method on dl
 					
 		// test the size of the linked list
-		fail("not implemented yet");
-						
+		dl.insertionSort();
+		
 		// test that the list is sorted
-		fail("not implemented yet");
+		assertTrue("The list is sorted", dl.isSorted());
+		//The expected result is true and it checks for the boolean result from the method isSorted in DLinkedList for the linked list dl.
 	}
 	
 }

@@ -57,24 +57,32 @@ public class ArraySortTest {
 	public void testInsertionSortOrdered() {
 		int[] arr = { 1, 2, 3, 4 };
 		// step 1: sort the array with ArraySort.insertionSort(arr)
+		ArraySort.insertionSort(arr);
+		//Calls the insertionSort method in the ArraySort class and passes through an array which should be sorted using insertion sort.
 
 		// step 2: check the length of the array
-		fail("not implemneted yet");
+		assertEquals("The length of the array is 4", 4, arr.length);
+		//The expected result is 4 and it checks for the length of the array arr.
 
 		// step 2: check if the array is sorted
-		fail("not implemented yet");
+		assertTrue("The array is sorted", ArraySort.isSorted(arr));
+		//The expected result is True and it checks if the array arr has been sorted by using the isSorted method.
 	}
 
 	@Test
 	public void testInsertionSortRandom() {
 		int[] arr = { 4, 2, 1, 8 };
 		// step 1: sort the array with ArraySort.insertionSort(arr)
+		ArraySort.insertionSort(arr);
+		//Calls the insertionSort method in the ArraySort class and passes through an array which should be sorted using insertion sort.
 
 		// step 2: check the length of the array
-		fail("not implemneted yet");
+		assertEquals("The length of the array is 4", 4, arr.length);
+		//The expected result is 4 and it checks for the length of the array arr.
 
 		// step 2: check if the array is sorted
-		fail("not implemented yet");
+		assertTrue("The array is sorted", ArraySort.isSorted(arr));
+		//The expected result is True and it checks if the array arr has been sorted by using the isSorted method.
 	}
 
 	@Test
@@ -88,24 +96,31 @@ public class ArraySortTest {
 	public void testBubbleSortRandom() {
 		int[] arr = { 5, 1, 4, 2, 8 };
 		// step 1: sort the array with ArraySort.bubbleSort(arr)
+		ArraySort.bubbleSort(arr);
+		//Calls the bubbleSort method in the ArraySort class and passes through an array which should be sorted using bubble sort.
 
 		// step 2: check the length of the array
-		fail("not implemneted yet");
+		assertEquals("The length of the array is 5", 5, arr.length);
+		//The expected result is 5 and it checks for the length of the array arr.
 
-		// step 2: check if the array is sorted
-		fail("not implemented yet");
+		assertTrue("The array is sorted", ArraySort.isSorted(arr));
+		//The expected result is True and it checks if the array arr has been sorted by using the isSorted method.
 	}
 
 	@Test
 	public void testBubbleSortOrdered() {
 		int[] arr = { 1, 2, 3, 4 };
 		// step 1: sort the array with ArraySort.bubbleSort(arr)
-
+		ArraySort.bubbleSort(arr);
+		//Calls the bubbleSort method in the ArraySort class and passes through an array which should be sorted using bubble sort.
+		
 		// step 2: check the length of the array
-		fail("not implemneted yet");
+		assertEquals("The length of the array is 4", 4, arr.length);
+		//The expected result is 4 and it checks for the length of the array arr.
 
 		// step 2: check if the array is sorted
-		fail("not implemented yet");
+		assertTrue("The array is sorted", ArraySort.isSorted(arr));
+		//The expected result is True and it checks if the array arr has been sorted by using the isSorted method.
 	}
 
 	@Test
