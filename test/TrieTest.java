@@ -29,7 +29,8 @@ public class TrieTest {
 	@Test
 	public void countAllWordsEmptyTest() {
 		// test countAllWords() for an empty trie
-		fail("not implemented yet");
+		assertEquals("There are no words in the trie", 0, trie.countAllWords());
+		//The expected result is 0 and it checks for the amount of words in trie.
 	}
 
 	@Test
