@@ -65,18 +65,67 @@ public class ArraySort {
 	 * 
 	 * This is Question 6
 	 * 
-	 * TODO Where N is the number of elements in the array 'S' the complexity is:
+	 * Where N is the number of elements in the array 'S' the complexity is:
 	 *
-	 * O(?)
+	 * O(n log(n))
 	 * 
-	 * Because: TODO
+	 * Because: Depending on the size of the list, the quick sort will have more or less recursions to sort through; which will result in different compile times. In
+	 * other words; the larger the list, the more times the code will call recursion and the longer it will take to compile.
 	 * 
 	 * @param S the unsorted input array
 	 * @return the sorted output array
 	 */
 	public static ArrayList<Integer> quickSort(ArrayList<Integer> S) {
 
-		return null; // TODO
+		if (S.size() <= 1) {
+			return S;
+		}
+		//Base case which ensures that the list is not already sorted/the list contains no elements or 1 element.
+		
+		int piv = S.get(0);
+		//Declaring a variable piv which will represent our pivot value.
+		
+		ArrayList<Integer> Less = new ArrayList<>();
+		//Declaring an array list which will represent the values less than the pivot.
+		ArrayList<Integer> Equal = new ArrayList<>();
+		//Declaring an array list which will represent the values equal than the pivot.
+		ArrayList<Integer> Greater = new ArrayList<>();
+		//Declaring an array list which will represent the values greater than the pivot.
+		
+		while(!S.isEmpty()) {
+			int currentValue = S.remove(0);
+			//Declare a new int variable which will store S without the first element.
+			if (currentValue < piv) {
+			//Checks if the value is less than the pivot value.
+				Less.add(currentValue);
+				//If the condition is met then the current value is added to the less array list.
+			} else if (currentValue == piv) {
+			//Checks if the value is equal to the pivot value.
+				Equal.add(currentValue);
+				//If the condition is met then the current value is added to the equal array list.
+			} else {
+				Greater.add(currentValue);
+				//If neither of the conditions where met then the current value is added to the greater array list.
+			}
+		}
+		
+		ArrayList<Integer> sortedLess = quickSort(Less);
+		//Recursively call the function but with the list of values less than the pivot.
+		ArrayList<Integer> sortedGreater = quickSort(Greater);
+		//Recursively call the function but with the list of values greater than the pivot.
+		
+		ArrayList<Integer> sortedList = new ArrayList<>();
+		//Creates a new array list which will later represent the sorted list.
+		sortedList.addAll(sortedLess);
+		//Adds the array list sortedLess to the array list.
+		sortedList.addAll(Equal);
+		//Adds the array list Equal to the array list.
+		sortedList.addAll(sortedGreater);
+		//Adds the array list sortedGreater to the array list.
+		
+		return sortedList;
+		//Returns the sorted list.
+		
 	}
 
 	
