@@ -103,12 +103,12 @@ public class DLinkedListTest {
 		//Adds the number 5 to the head of the list dl.
 		dl.addAtTail(3);
 		//Adds the number 3 to the tail of the list dl.
-		System.out.println(dl);
+
 		// now call the insertionSort() method on dl
 					
 		// test the size of the linked list
 		dl.insertionSort();
-		
+	
 		// test that the list is sorted
 		assertTrue("The list is sorted", dl.isSorted());
 		//The expected result is true and it checks for the boolean result from the method isSorted in DLinkedList for the linked list dl.

@@ -208,14 +208,66 @@ public class DLinkedList {
 	 * The task is to perform the same algorithm, but sorting nodes linked together
 	 * in a doubly linked list.
 	 * 
-	 * TODO Where N is the number of elements in the list the complexity is:
+	 * Where N is the number of elements in the list the complexity is:
 	 *
-	 * O(?)
+	 * O(n^2)
 	 * 
-	 * Because: TODO
+	 * Because: Similar to the bubble sort; there are two loops being used, there is a chance that the first and second loop can loop for n amount of times. The more values in the list
+	 * the longer it will take the code to compile.
 	 */
 	public void insertionSort() {
 
+		if (headNode == null || headNode.nextNode == null) {
+		//If statement which makes sure the list is not empty or only 1 value.
+			return;
+			//If the condition is met then nothing is returned.
+		}
+		
+		Node currentNode = headNode.nextNode;
+		//Declares a new node which will represent the current node (will begin as the second node).
+		
+		while (currentNode != null) {
+		//A while loop which will continue to loop whilst the current node is not null/continue to loop until the end of the list.
+			Node next = currentNode.nextNode;
+			//Declares a new node next which represents the next node from the current node.
+			Node previous = currentNode.prevNode;
+			//Declares a new node previous which represents the previous node from the current ndoe.
+			int value = currentNode.getValue();
+			//Declares a int variable value which will store the value of the current node.
+			
+			if (previous.getValue() <= value) {
+			//If statement which checks of the previous nodes value is smaller or equal to the current nodes value/checks if the value does not need swapped.
+				currentNode = next;
+				//If the condition is met then the current node will be set to the next node on the list.
+			} else {
+				
+				delete(currentNode);
+				//Will delete the current node;
+				
+				while (previous != null && previous.getValue() > value) {
+				//A while loop which will continue to loop until the point of insertion is found.
+					previous = previous.prevNode;
+					//Sets the previous variable to the node before itself.
+				}
+				
+				if (previous == null) {
+				//If statement which checks if the value should be inserted at the head.
+					insertAfter(null, value);
+					//If the condition is met then insert the value at the head.
+				} else {
+					insertAfter(previous, value);
+					//If the condition is not met then insert the value after the previous node.
+				}
+				
+				currentNode = next;
+				//Set the current node to the next node.
+				
+			}
+			
+			
+		}
+		
+		
 	}
 
 	public static void main(String[] args) {
