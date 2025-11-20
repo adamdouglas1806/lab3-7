@@ -21,16 +21,43 @@ public class ArraySort {
 	 * 
 	 * This is Question 4
 	 * 
-	 * TODO Where N is the number of elements in the array 'arr' the complexity is:
+	 * Where N is the number of elements in the array 'arr' the complexity is:
 	 *
-	 * O(?)
+	 * O(n^2)
 	 * 
-	 * Because: TODO
+	 * Because: Since there is a nested loop the more data/elements that are in the list the longer it will take for the bubble sort to sort the data. Due to the nested loop
+	 * the loop on the outside and the loop on the inside will both run n and n-1 times. In other words; the more elements the list has the longer it will take to compile.
 	 * 
 	 * @param arr the array to be sorted in-place
 	 */
 	public static void bubbleSort(int[] arr) {
 
+		boolean swaps = true;
+		//Declares a new variable swaps which is equal to true;
+		int temp;
+		//Declares a new variable temp which will later be used to store the arr[i].
+		
+		while (swaps) {
+		//A while loop which will continue to loop whilst swaps = true;
+			swaps = false;
+			//Sets swaps to false.
+			
+			for (int i = 0; i < arr.length - 1; i++) {
+			//A for loop which will loop the for length of the array arr.
+				if (arr[i+1] < arr[i]) {
+				//An if statement which checks if the next element in the array is smaller than the current element.
+					temp = arr[i];
+					//Sets the temp value to the current index.
+					arr[i] = arr[i+1];
+					//Sets the current index to the next index.
+					arr[i+1] = temp;
+					//Sets the next index to the temp value (the original current index).
+					swaps = true;
+					//Sets swaps to true.
+				}
+			}
+		}
+		
 	}
 
 	/** Quick sort of an array. This method creates a new array with
